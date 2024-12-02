@@ -48,7 +48,6 @@ public class Main{
     }
 
     private static void afficherMenu() {
-        System.out.println("\n--- Gestion de Comptes Bancaires ---");
         System.out.println("1. Créer un compte courant");
         System.out.println("2. Créer un compte épargne");
         System.out.println("3. Créditer un compte");
@@ -61,27 +60,27 @@ public class Main{
     }
 
     private static void creerCompteCourant() {
-        System.out.print("Nom du propriétaire : ");
+        System.out.print("Nom du compte : ");
         String nom = scanner.nextLine();
         System.out.print("Découvert autorisé : ");
         double decouvert = scanner.nextDouble();
         CompteCourant compte = new CompteCourant(nom, decouvert);
         gestionComptes.ajouterCompte(compte);
-        System.out.println("Compte courant créé avec succès !");
+        System.out.println("Compte créé !");
     }
 
     private static void creerCompteEpargne() {
-        System.out.print("Nom du propriétaire : ");
+        System.out.print("Nom du compte : ");
         String nom = scanner.nextLine();
-        System.out.print("Taux d'abondement (en %) : ");
+        System.out.print("Taux d'abondement : ");
         double taux = scanner.nextDouble() / 100;
         CompteEpargne compte = new CompteEpargne(nom, taux);
         gestionComptes.ajouterCompte(compte);
-        System.out.println("Compte épargne créé avec succès !");
+        System.out.println("Compte créé !");
     }
 
     private static void crediterCompte() {
-        System.out.print("Nom du propriétaire du compte à créditer : ");
+        System.out.print("Compte à créditer : ");
         String nom = scanner.nextLine();
         System.out.print("Montant à créditer : ");
         double montant = scanner.nextDouble();
@@ -89,7 +88,7 @@ public class Main{
         for (Compte compte : gestionComptes.getComptes()) {
             if (compte.proprietaire.equals(nom)) {
                 compte.crediter(montant);
-                System.out.println("Compte crédité avec succès !");
+                System.out.println("Compte crédité !");
                 return;
             }
         }
@@ -97,7 +96,7 @@ public class Main{
     }
 
     private static void debiterCompte() {
-        System.out.print("Nom du propriétaire du compte à débiter : ");
+        System.out.print("Compte à débiter : ");
         String nom = scanner.nextLine();
         System.out.print("Montant à débiter : ");
         double montant = scanner.nextDouble();
@@ -105,7 +104,7 @@ public class Main{
         for (Compte compte : gestionComptes.getComptes()) {
             if (compte.proprietaire.equals(nom)) {
                 compte.debiter(montant);
-                System.out.println("Compte débité avec succès !");
+                System.out.println("Compte débité !");
                 return;
             }
         }
@@ -113,9 +112,9 @@ public class Main{
     }
 
     private static void effectuerVirement() {
-        System.out.print("Nom du propriétaire du compte à débiter : ");
+        System.out.print("Compte à débiter : ");
         String nomDebiteur = scanner.nextLine();
-        System.out.print("Nom du propriétaire du compte à créditer : ");
+        System.out.print("Compte à créditer : ");
         String nomCrediteur = scanner.nextLine();
         System.out.print("Montant du virement : ");
         double montant = scanner.nextDouble();

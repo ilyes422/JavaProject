@@ -4,8 +4,6 @@ public class Operation {
     private double montant;
     private Mouvement type;
 
-    public Operation() {}
-
     public Operation(double montant, Mouvement type) {
         this.montant = montant;
         this.type = type;

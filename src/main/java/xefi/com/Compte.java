@@ -53,14 +53,12 @@ public abstract class Compte implements Comparable<Compte> {
     }
 
     public void information() {
-        System.out.println("*******************************************");
         System.out.println("Propriétaire : " + proprietaire);
         System.out.printf("Solde : %.2f%n", calculSolde());
         System.out.println("Opérations :");
         for (Operation op : operations) {
             System.out.println(op);
         }
-        System.out.println("*******************************************");
     }
 
     @Override

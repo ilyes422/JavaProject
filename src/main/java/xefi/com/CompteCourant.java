@@ -3,8 +3,6 @@ package xefi.com;
 public class CompteCourant extends Compte {
     private double decouvertAutorise;
 
-    public CompteCourant() {}
-
     public CompteCourant(String proprietaire, double decouvertAutorise) {
         super(proprietaire);
         this.decouvertAutorise = decouvertAutorise;
@@ -17,7 +15,6 @@ public class CompteCourant extends Compte {
 
     @Override
     public void information() {
-        System.out.println("*******************************************");
         System.out.println("Propriétaire : " + proprietaire);
         System.out.printf("Solde : %.2f%n", calculSolde());
         System.out.printf("Découvert autorisé : %.2f%n", decouvertAutorise);
@@ -25,6 +22,5 @@ public class CompteCourant extends Compte {
         for (Operation op : operations) {
             System.out.println(op);
         }
-        System.out.println("*******************************************");
     }
 }
